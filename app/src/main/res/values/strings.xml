@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Sanduchero</string>
+    <string name="username">Usuario</string>
+    <string name="nombres">Nombres</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="correo">Correo</string>
+    <string name="password">Contraseña</string>
+    <string name="confirpass">Confirmar contraseña</string>
+    <string name="login">Ingresar</string>
+    <string name="olvido">He olvidado mi contraseña</string>
+    <string name="registro">Registrarme</string>
+    <string name="crear">Crear</string>
+    <string name="acepto">Acepto términos y condiciones</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="idUsu">0</string>
+</resources>
