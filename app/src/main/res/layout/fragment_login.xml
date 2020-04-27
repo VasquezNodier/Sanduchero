@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@drawable/back_uno"
-    tools:context=".inicio.LoginActivity">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".inicio.LoginFragment">
 
     <ImageView
         android:id="@+id/img_land"
@@ -16,7 +15,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/landinguno" />
+        app:srcCompat="@drawable/landing" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -32,7 +31,7 @@
         app:srcCompat="@drawable/iconapp" />
 
     <EditText
-        android:id="@+id/edt_usuario"
+        android:id="@+id/et_usuario"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -51,7 +50,7 @@
         app:layout_constraintTop_toBottomOf="@+id/img_land" />
 
     <EditText
-        android:id="@+id/edt_password"
+        android:id="@+id/et_password"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -67,10 +66,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_usuario" />
+        app:layout_constraintTop_toBottomOf="@+id/et_usuario" />
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_ingresar"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -81,10 +80,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_password" />
+        app:layout_constraintTop_toBottomOf="@+id/et_password" />
 
     <TextView
-        android:id="@+id/txv_olvido"
+        android:id="@+id/tv_olvido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -94,10 +93,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_ingresar" />
 
     <TextView
-        android:id="@+id/txv_registro"
+        android:id="@+id/tv_registro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -107,7 +106,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txv_olvido" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_olvido" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

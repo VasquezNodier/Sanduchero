@@ -1,12 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
 
     <fragment
-        android:id="@+id/nav_host_fragment_container"
-        android:name=""
-        ></fragment>
+        android:id="@+id/loginFragment"
+        android:name="co.vasquez.nodier.sanduchero.inicio.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registroUnoFragment"
+            app:destination="@id/registroUnoFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_olvideFragment"
+            app:destination="@id/olvideFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_menuInicioFragment"
+            app:destination="@id/menuInicioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registroUnoFragment"
+        android:name="co.vasquez.nodier.sanduchero.inicio.RegistroUnoFragment"
+        android:label="fragment_registro_uno"
+        tools:layout="@layout/fragment_registro_uno" >
+        <action
+            android:id="@+id/action_registroUnoFragment_to_registroDosFragment"
+            app:destination="@id/registroDosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registroDosFragment"
+        android:name="co.vasquez.nodier.sanduchero.inicio.RegistroDosFragment"
+        android:label="fragment_registro_dos"
+        tools:layout="@layout/fragment_registro_dos" >
+        <action
+            android:id="@+id/action_registroDosFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/olvideFragment"
+        android:name="co.vasquez.nodier.sanduchero.inicio.OlvideFragment"
+        android:label="fragment_olvide"
+        tools:layout="@layout/fragment_olvide" >
+        <action
+            android:id="@+id/action_olvideFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuInicioFragment"
+        android:name="co.vasquez.nodier.sanduchero.actividadesCli.MenuInicioFragment"
+        android:label="fragment_menu_inicio"
+        tools:layout="@layout/fragment_menu_inicio" />
 
 </navigation>

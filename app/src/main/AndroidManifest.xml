@@ -12,11 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".actividades.MenuInicioActivity"></activity>
-        <activity android:name=".inicio.OlvideActivity" />
-        <activity android:name=".inicio.RegistroDosActivity" />
-        <activity android:name=".inicio.RegistroActivity" />
-        <activity android:name=".inicio.LoginActivity" />
+        <activity android:name=".inicio.HostActivity"></activity>
         <activity android:name=".inicio.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

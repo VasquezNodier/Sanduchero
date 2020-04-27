@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import co.vasquez.nodier.sanduchero.actividades.MenuInicioActivity;
 import co.vasquez.nodier.sanduchero.adaptadores.UsuarioAdapter;
 import co.vasquez.nodier.sanduchero.dao.BaseDatos;
 import co.vasquez.nodier.sanduchero.dao.UsuariosDAO;
@@ -86,34 +85,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void recomendados(){
-        imgRecomendados.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, MenuInicioActivity.class);
-                startActivity(i);
-            }
-        });
-    }
 
-    public void creados(){
-        imgCreados.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, MenuInicioActivity.class);
-                startActivity(i);
-            }
-        });
-    }
-
-    public void armalo(){
-        imgArmalo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, MenuInicioActivity.class);
-                startActivity(i);
-            }
-        });
-    }
 
 }
