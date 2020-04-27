@@ -1,21 +1,27 @@
 package co.vasquez.nodier.sanduchero.modelo;
 
-public class Sanduches {
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
+import java.util.List;
+
+@Entity
+public class Sanduches {
+    @PrimaryKey (autoGenerate = true)
     private int idSan;
     private String nombreSan;
     private int precioSan;
     private int cantidadSan;
-    private String ingredienteSan;
+    private List<Ingredientes> ingredientes;
     private String imagenSan;
     private String categoriaSan;
 
-    public Sanduches(int idSan, String nombreSan, int precioSan, int cantidadSan, String ingredienteSan, String imagenSan, String categoriaSan) {
-        this.idSan = 0;
+    public Sanduches(String nombreSan, int precioSan, int cantidadSan,
+                     List<Ingredientes> ingredientes, String imagenSan, String categoriaSan) {
         this.nombreSan = nombreSan;
         this.precioSan = precioSan;
         this.cantidadSan = cantidadSan;
-        this.ingredienteSan = ingredienteSan;
+        this.ingredientes = ingredientes;
         this.imagenSan = imagenSan;
         this.categoriaSan = categoriaSan;
     }
@@ -52,12 +58,12 @@ public class Sanduches {
         this.cantidadSan = cantidadSan;
     }
 
-    public String getIngredienteSan() {
-        return ingredienteSan;
+    public List<Ingredientes> getIngredientes() {
+        return ingredientes;
     }
 
-    public void setIngredienteSan(String ingredienteSan) {
-        this.ingredienteSan = ingredienteSan;
+    public void setIngredientes(List<Ingredientes> ingredientes) {
+        this.ingredientes = ingredientes;
     }
 
     public String getImagenSan() {

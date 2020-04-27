@@ -2,7 +2,7 @@ package co.vasquez.nodier.sanduchero.modelo;
 
 import java.util.Date;
 
-public class Compras {
+public class Compras{
 
     private int idCom;
     private int idUsuCom;

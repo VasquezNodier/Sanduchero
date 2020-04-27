@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".inicio.olvideActivity"></activity>
+        <activity android:name=".actividades.MenuInicioActivity"></activity>
+        <activity android:name=".inicio.OlvideActivity" />
         <activity android:name=".inicio.RegistroDosActivity" />
         <activity android:name=".inicio.RegistroActivity" />
         <activity android:name=".inicio.LoginActivity" />

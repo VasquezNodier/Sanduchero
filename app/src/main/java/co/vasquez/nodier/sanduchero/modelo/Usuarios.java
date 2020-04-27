@@ -1,6 +1,15 @@
 package co.vasquez.nodier.sanduchero.modelo;
 
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+import javax.annotation.Nullable;
+
+@Entity
 public class Usuarios {
+
+    @PrimaryKey(autoGenerate = true)
     private int idUsu;
     private String nombreUsu;
     private String apellidoUsu;
@@ -8,27 +17,35 @@ public class Usuarios {
     private String telefonoUsu;
     private String correoUsu;
     private String contraUsu;
-    private int tipoUsu;
 
-    public Usuarios() {
-    }
-
-    public Usuarios(String nombreUsu, String apellidoUsu, String usuarioUsu, String telefonoUsu, String correoUsu, String contraUsu, int tipoUsu) {
+    @Ignore
+   public Usuarios(int idUsu, String nombreUsu, String apellidoUsu, String usuarioUsu, String telefonoUsu,
+                   String correoUsu, String contraUsu) {
+        this.idUsu = idUsu;
         this.nombreUsu = nombreUsu;
         this.apellidoUsu = apellidoUsu;
         this.usuarioUsu = usuarioUsu;
         this.telefonoUsu = telefonoUsu;
         this.correoUsu = correoUsu;
         this.contraUsu = contraUsu;
-        this.tipoUsu = tipoUsu;
     }
 
-    public Usuarios(String nombreUsu, String apellidoUsu, String correoUsu, String contraUsu, int tipoUsu) {
+    public Usuarios(String nombreUsu, String apellidoUsu, String usuarioUsu, String telefonoUsu,
+                    String correoUsu, String contraUsu) {
+        this.nombreUsu = nombreUsu;
+        this.apellidoUsu = apellidoUsu;
+        this.usuarioUsu = usuarioUsu;
+        this.telefonoUsu = telefonoUsu;
+        this.correoUsu = correoUsu;
+        this.contraUsu = contraUsu;
+    }
+
+    @Ignore
+    public Usuarios(String nombreUsu, String apellidoUsu, String correoUsu, String contraUsu) {
         this.nombreUsu = nombreUsu;
         this.apellidoUsu = apellidoUsu;
         this.correoUsu = correoUsu;
         this.contraUsu = contraUsu;
-        this.tipoUsu = tipoUsu;
     }
 
     public int getIdUsu() {
@@ -87,13 +104,20 @@ public class Usuarios {
         this.contraUsu = contraUsu;
     }
 
-    public int getTipoUsu() {
-        return tipoUsu;
+    @Override
+    public String toString() {
+        return "Usuarios{" +
+                "idUsu=" + idUsu +
+                ", nombreUsu='" + nombreUsu + '\'' +
+                ", apellidoUsu='" + apellidoUsu + '\'' +
+                ", usuarioUsu='" + usuarioUsu + '\'' +
+                ", telefonoUsu='" + telefonoUsu + '\'' +
+                ", correoUsu='" + correoUsu + '\'' +
+                ", contraUsu='" + contraUsu + '\'' +
+                '}';
     }
 
-    public void setTipoUsu(int tipoUsu) {
-        this.tipoUsu = tipoUsu;
-    }
+
 }
 
 

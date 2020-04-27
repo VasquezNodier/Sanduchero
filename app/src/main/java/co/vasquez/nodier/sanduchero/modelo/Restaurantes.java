@@ -1,7 +1,11 @@
 package co.vasquez.nodier.sanduchero.modelo;
 
-public class Restaurantes {
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
+@Entity
+public class Restaurantes {
+    @PrimaryKey(autoGenerate = true)
     private int idRes;
     private String  nombreRes;
     private String telefonoRes;
@@ -10,11 +14,7 @@ public class Restaurantes {
     private String contraRes;
     private String direccionRes;
 
-    public Restaurantes() {
-    }
-
     public Restaurantes(String nombreRes, String telefonoRes, String usuarioRes, String correoRes, String contraRes, String direccionRes) {
-        this.idRes = 0;
         this.nombreRes = nombreRes;
         this.telefonoRes = telefonoRes;
         this.usuarioRes = usuarioRes;
@@ -77,5 +77,18 @@ public class Restaurantes {
 
     public void setDireccionRes(String direccionRes) {
         this.direccionRes = direccionRes;
+    }
+
+    @Override
+    public String toString() {
+        return "Restaurantes{" +
+                "idRes=" + idRes +
+                ", nombreRes='" + nombreRes + '\'' +
+                ", telefonoRes='" + telefonoRes + '\'' +
+                ", usuarioRes='" + usuarioRes + '\'' +
+                ", correoRes='" + correoRes + '\'' +
+                ", contraRes='" + contraRes + '\'' +
+                ", direccionRes='" + direccionRes + '\'' +
+                '}';
     }
 }

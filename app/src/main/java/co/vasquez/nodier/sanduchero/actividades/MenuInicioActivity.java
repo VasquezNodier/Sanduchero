@@ -1,25 +1,28 @@
-package co.vasquez.nodier.sanduchero;
+package co.vasquez.nodier.sanduchero.actividades;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import co.vasquez.nodier.sanduchero.actividades.MenuInicioActivity;
+import co.vasquez.nodier.sanduchero.MainActivity;
+import co.vasquez.nodier.sanduchero.R;
 import co.vasquez.nodier.sanduchero.adaptadores.UsuarioAdapter;
 import co.vasquez.nodier.sanduchero.dao.BaseDatos;
 import co.vasquez.nodier.sanduchero.dao.UsuariosDAO;
 import co.vasquez.nodier.sanduchero.modelo.Usuarios;
 
-
-public class MainActivity extends AppCompatActivity {
+public class MenuInicioActivity extends AppCompatActivity{
 
     private ImageView imgRecomendados, imgArmalo, imgCreados;
     private RecyclerView rvUsuarios;
@@ -30,25 +33,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        BaseDatos bd = BaseDatos.getInstancia(this);
-        usuariosDAO = bd.usuariosDAO();
-
-        this.asociarElementos();
-        this.getDataFake();
-
-        RecyclerView.LayoutManager manager = new LinearLayoutManager(getApplication());
-        //RecyclerView.LayoutManager manager = new GridLayoutManager(getApplication(),2);
-        miAdaptador = new UsuarioAdapter(usuarios, new UsuarioAdapter.NombreDeInterface() {
-            @Override
-            public void metodoOnclick(Usuarios usuario, int posicion) {
-                Toast.makeText(MainActivity.this, "Hice click en: "+usuario, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        rvUsuarios.setLayoutManager(manager);
-        rvUsuarios.setAdapter(miAdaptador);
+        setContentView(R.layout.activity_menu_inicio);
 
     }
 
@@ -79,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                     "apavas@email.com","Alex"));
             usuariosDAO.crearUsuario(new Usuarios(
                     "Jorge","Pavas","Alex","3223172827",
-                    "apavas@email.com","Alex"));
+                    "apavas@email.com","456"));
         }
 
         usuarios = usuariosDAO.obtenerUsuarios();
@@ -90,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         imgRecomendados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, MenuInicioActivity.class);
+                Intent i = new Intent(MenuInicioActivity.this, MainActivity.class);
                 startActivity(i);
             }
         });
@@ -100,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         imgCreados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, MenuInicioActivity.class);
+                Intent i = new Intent(MenuInicioActivity.this, MainActivity.class);
                 startActivity(i);
             }
         });
@@ -110,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         imgArmalo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, MenuInicioActivity.class);
+                Intent i = new Intent(MenuInicioActivity.this, MainActivity.class);
                 startActivity(i);
             }
         });

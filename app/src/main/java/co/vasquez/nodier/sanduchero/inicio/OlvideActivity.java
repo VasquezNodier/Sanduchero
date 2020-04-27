@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import co.vasquez.nodier.sanduchero.R;
 
-public class olvideActivity extends AppCompatActivity {
+public class OlvideActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
