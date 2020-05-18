@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Sanduchero</string>
+
+
     <string name="username">Usuario</string>
     <string name="nombres">Nombres</string>
     <string name="apellidos">Apellidos</string>
@@ -13,13 +15,40 @@
     <string name="crear">Crear</string>
     <string name="acepto">Acepto términos y condiciones</string>
     <string name="siguiente">Siguiente</string>
-    <string name="idUsu">0</string>
     <string name="txt_olvide">Ingresa el correo registrado</string>
     <string name="enviar">Enviar</string>
     <string name="nuestroMenu">Sanduches de la casa</string>
     <string name="armalo">Ármalo tú mismo</string>
     <string name="creados">Hechos por otros</string>
 
+    <string name="hola">Hola</string>
+    <string name="buscar">Buscar</string>
+    <string name="escoge">¡Escoge la opción que más te guste!</string>
+    <string name="categoria1">Categoria 1</string>
+    <string name="categoria2">Categoria 2</string>
+    <string name="puntaje">4.5</string>
+    <string name="crearSanduche">¡Crea tu propio Sanduchero!</string>
+    <string name="listadoIngre">Selecciona los ingredientes para tu Sanduchero:</string>
+    <string name="pasoUno">Primer Paso: Escoge el/los tipo de pan:</string>
+    <string name="pasoDos">Segundo Paso: Escoge la/las verduras:</string>
+    <string name="pasoTres">Tercer Paso: Escoge la/las proteinas:</string>
+    <string name="pasoCuatro">Cuarto Paso: Escoge el/los queso:</string>
+    <string name="precioCreado">El precio de tu sanduchero es: </string>
+    <string name="ponNombre">Dale identidad a tu sanduchero con un nombre original:</string>
+    <string name="crear_agregar">Crear y Agregar al Carrito</string>
+    <string name="nombre">Nombre</string>
+    <string name="mis_datos">Mis Datos</string>
+    <string name="mis_pedidos">Mis Pedidos</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="carrito">Mi Carrito Sanduchero:</string>
+    <string name="entregar">Entregar En: </string>
+    <string name="direccion">Direccion</string>
+
+
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>

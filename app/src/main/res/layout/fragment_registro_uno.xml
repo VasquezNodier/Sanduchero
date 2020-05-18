@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".inicio.RegistroUnoFragment"
-    android:background="@drawable/back_dos">
+    tools:context=".view.inicio.RegistroUnoFragment"
+    android:background="@drawable/img_back_dos">
 
     <Button
         android:id="@+id/btn_sig_reg2"
@@ -29,7 +29,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:background="@drawable/round_border_reg"
+        android:background="@drawable/bg_round_border_reg"
         android:ems="10"
         android:hint="@string/nombres"
         android:inputType="textPersonName"
@@ -46,7 +46,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:background="@drawable/round_border_reg"
+        android:background="@drawable/bg_round_border_reg"
         android:ems="10"
         android:hint="@string/apellidos"
         android:inputType="textPersonName"
@@ -63,7 +63,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:background="@drawable/round_border_reg"
+        android:background="@drawable/bg_round_border_reg"
         android:ems="10"
         android:hint="@string/correo"
         android:inputType="textEmailAddress"

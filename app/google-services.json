@@ -8,14 +8,14 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:311060752693:android:6a39d042fff35267ca047c",
+        "mobilesdk_app_id": "1:311060752693:android:c21087c2d8f117c5ca047c",
         "android_client_info": {
           "package_name": "co.vasquez.nodier.sanduchero"
         }
       },
       "oauth_client": [
         {
-          "client_id": "311060752693-hdlnqjnoiqf1912ssb6uo4erbofdpfbs.apps.googleusercontent.com",
+          "client_id": "311060752693-rvlmlargner7fufofl5atl0dqbfqisq1.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "co.vasquez.nodier.sanduchero",

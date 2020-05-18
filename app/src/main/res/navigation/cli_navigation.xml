@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cli_navigation.xml"
+    app:startDestination="@id/menuCliFragment">
+    <fragment
+        android:id="@+id/homeCliFragment"
+        android:name="co.vasquez.nodier.sanduchero.view.fragmentCli.HomeCliFragment"
+        android:label="fragment_home_cli"
+        tools:layout="@layout/fragment_home_cli" />
+    <fragment
+        android:id="@+id/menuCliFragment"
+        android:name="co.vasquez.nodier.sanduchero.view.fragmentCli.MenuCliFragment"
+        android:label="fragment_menu_cli"
+        tools:layout="@layout/fragment_menu_cli" >
+        <action
+            android:id="@+id/action_menuCliFragment_to_detalleSanducheFragment"
+            app:destination="@id/detalleSanducheFragment" />
+        <argument
+            android:name="miUsuario"
+            app:argType="co.vasquez.nodier.sanduchero.model.entity.Usuarios" />
+        <action
+            android:id="@+id/action_menuCliFragment_to_crearSanducheFragment"
+            app:destination="@id/crearSanducheFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartCliFragment"
+        android:name="co.vasquez.nodier.sanduchero.view.fragmentCli.CartCliFragment"
+        android:label="fragment_cart_cli"
+        tools:layout="@layout/fragment_cart_cli" />
+    <fragment
+        android:id="@+id/profileCliFragment"
+        android:name="co.vasquez.nodier.sanduchero.view.fragmentCli.ProfileCliFragment"
+        android:label="fragment_profile_cli"
+        tools:layout="@layout/fragment_profile_cli" />
+    <fragment
+        android:id="@+id/detalleSanducheFragment"
+        android:name="co.vasquez.nodier.sanduchero.view.fragmentCli.DetalleSanducheFragment"
+        android:label="fragment_detalle_sanduche"
+        tools:layout="@layout/fragment_detalle_sanduche" >
+        <argument
+            android:name="miSanduche"
+            app:argType="co.vasquez.nodier.sanduchero.model.entity.Sanduches" />
+    </fragment>
+    <fragment
+        android:id="@+id/crearSanducheFragment"
+        android:name="co.vasquez.nodier.sanduchero.view.fragmentCli.CrearSanducheFragment"
+        android:label="fragment_crear_sanduche"
+        tools:layout="@layout/fragment_crear_sanduche" >
+        <argument
+            android:name="miUsuario"
+            app:argType="co.vasquez.nodier.sanduchero.model.entity.Usuarios" />
+    </fragment>
+</navigation>

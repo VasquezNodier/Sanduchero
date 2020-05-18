@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragmentCli.CartCliFragment"
+    android:background="@drawable/img_back_dos">
+
+    <TextView
+        android:id="@+id/tx_EntregarEn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/entregar"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tx_Direccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tx_EntregarEn"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="false"
+        android:layout_marginStart="16dp"
+        android:drawableRight="@drawable/ic_flecha_abajo"
+        android:drawablePadding="8dp"
+        android:text="@string/direccion"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"
+        app:drawableTint="@color/colorWhite" />
+
+    <TextView
+        android:id="@+id/tx_Carrito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tx_Direccion"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/carrito"
+        android:textColor="@color/colorWhite"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
