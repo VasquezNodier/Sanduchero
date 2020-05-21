@@ -55,26 +55,11 @@ public class DetalleSanducheFragment extends Fragment {
         txNombreSanduche.setText(sanduche.getNombre());
         txPrecioSanduche.setText("$"+sanduche.getPrecio());
 
-        //Toast.makeText(view.getContext(), "ingre: "+ sanduche.getIngrediente() , Toast.LENGTH_SHORT).show();
-
-        /*for (int i = 0; i < sanduche.getIngrediente().size(); i++) {
-            Toast.makeText(view.getContext(), "ingre: "+ sanduche.getIngrediente().get(i).getNombreIng(), Toast.LENGTH_SHORT).show();
-        }*/
-        /*Object valor;
-        ingrediente = sanduche.getIngrediente();
-        for (HashMap<String, Object> map : ingrediente) {
-            for (HashMap.Entry<String, Object> entry : map.entrySet()) {
-                String key = entry.getKey();
-                valor = entry.getValue();
-                //Toast.makeText(view.getContext(), "prueba "+ key, Toast.LENGTH_SHORT).show();
-                Toast.makeText(view.getContext(), ""+valor, Toast.LENGTH_SHORT).show();
-            }
-        }*/
         // ASIGNO MI LISTA DE MAP DE INGREDIENTES AL LIST VIEW
         ArrayAdapter arrayAdapter = new ArrayAdapter(getContext(),android.R.layout.
-                simple_list_item_1,sanduche.getIngrediente());
+                simple_list_item_1,sanduche.getId_ingredientes());
 
-        //lvIngredienteSan.setAdapter(arrayAdapter);
+        lvIngredienteSan.setAdapter(arrayAdapter);
     }
 
     public void asociarElementos(View view){

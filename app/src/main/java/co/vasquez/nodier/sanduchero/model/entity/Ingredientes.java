@@ -11,6 +11,10 @@ public class Ingredientes {
     public Ingredientes() {
     }
 
+    public Ingredientes(String nombre) {
+        this.nombre = nombre;
+    }
+
     public Ingredientes(String nombre, int precio, String Imagen, String categoria) {
         this.nombre = nombre;
         this.precio = precio;

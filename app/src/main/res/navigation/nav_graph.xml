@@ -27,8 +27,8 @@
         android:label="fragment_registro_uno"
         tools:layout="@layout/fragment_registro_uno" >
         <action
-            android:id="@+id/action_registroUnoFragment_to_registroDosFragment"
-            app:destination="@id/registroDosFragment" />
+            android:id="@+id/action_registroUnoFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/registroDosFragment"

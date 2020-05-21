@@ -10,10 +10,12 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -39,6 +41,8 @@ public class MenuCliFragment extends Fragment {
     private RecyclerView rvNuestros;
     private RecyclerView rvCreados;
     private Button btnCrearSanduche;
+    private TextView txCategoria1, txCategoria2;
+    private Sanduches sanduche;
 
 
     public MenuCliFragment() {
@@ -67,6 +71,9 @@ public class MenuCliFragment extends Fragment {
         rvNuestros = v.findViewById(R.id.rv_Categoria1);
         rvCreados = v.findViewById(R.id.rv_Categoria2);
         btnCrearSanduche = v.findViewById(R.id.btn_CrearSanduche);
+        txCategoria1 = v.findViewById(R.id.tx_Categoria1);
+        txCategoria2 = v.findViewById(R.id.tx_Categoria2);
+
 
     }
 
@@ -90,6 +97,7 @@ public class MenuCliFragment extends Fragment {
 
 
     private void mostrarDatos(final View view) {
+        //NUESTROS
         sanducheRepo = new SanducheRepo(getContext());
         nuestrosSanduches = new ArrayList<>();
         sanduNuestrosAdapter = new SanduNuestrosAdapter(nuestrosSanduches, new SanduNuestrosAdapter.NombreDeInterface() {
@@ -103,6 +111,15 @@ public class MenuCliFragment extends Fragment {
             }
         });
 
+        LinearLayoutManager manager1
+                = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        //RecyclerView.LayoutManager manager = new LinearLayoutManager(getContext());
+        //RecyclerView.LayoutManager manager = new GridLayoutManager(getContext(), 2);
+        rvNuestros.setLayoutManager(manager1);
+        rvNuestros.setAdapter(sanduNuestrosAdapter);
+        rvNuestros.setHasFixedSize(true);
+
+        //CREADOS
         sanducheRepo = new SanducheRepo(getContext());
         creadosSanduches = new ArrayList<>();
         sanduCreadossAdapter = new SanduCreadosAdapter(creadosSanduches, new SanduCreadosAdapter.NombreDeInterface() {
@@ -116,16 +133,6 @@ public class MenuCliFragment extends Fragment {
             }
         });
 
-        // CATEGORIA 1
-        LinearLayoutManager manager1
-                = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        //RecyclerView.LayoutManager manager = new LinearLayoutManager(getContext());
-        //RecyclerView.LayoutManager manager = new GridLayoutManager(getContext(), 2);
-        rvNuestros.setLayoutManager(manager1);
-        rvNuestros.setAdapter(sanduNuestrosAdapter);
-        rvNuestros.setHasFixedSize(true);
-
-        // CATEGORIA 2
         RecyclerView.LayoutManager manager2 = new LinearLayoutManager(getContext());
         //RecyclerView.LayoutManager manager2 = new GridLayoutManager(getContext(), 2);
         rvCreados.setLayoutManager(manager2);

@@ -104,31 +104,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/bg_round_border"
         android:drawableLeft="@drawable/ic_shopping_car"
-        android:drawablePadding="10dp"
-        android:padding="10dp"
+        android:drawablePadding="6dp"
+        android:padding="6dp"
         android:text="@string/crear_agregar"
         android:textColor="@color/colorWhite"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btn_Galeria" />
-
-    <Button
-        android:id="@+id/btn_Galeria"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:background="@drawable/bg_round_border"
-        android:drawableLeft="@drawable/ic_camara"
-        android:padding="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_CrearAgregar"
-        app:layout_constraintEnd_toStartOf="@+id/btn_CrearAgregar"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btn_CrearAgregar" />
+        app:layout_constraintStart_toEndOf="@+id/ib_Foto" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -136,5 +122,31 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="-513dp" />
+
+    <ImageButton
+        android:id="@+id/ib_Foto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:src="@drawable/ic_camara"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_CrearAgregar"
+        app:layout_constraintEnd_toStartOf="@+id/btn_CrearAgregar"
+        app:layout_constraintStart_toEndOf="@+id/ib_Galeria"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/btn_CrearAgregar"/>
+
+    <ImageButton
+        android:id="@+id/ib_Galeria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:src="@drawable/ic_galeria"
+        app:layout_constraintBottom_toBottomOf="@+id/ib_Foto"
+        app:layout_constraintEnd_toStartOf="@+id/ib_Foto"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ib_Foto"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

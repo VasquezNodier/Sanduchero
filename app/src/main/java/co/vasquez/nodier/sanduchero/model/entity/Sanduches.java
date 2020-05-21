@@ -7,12 +7,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Sanduches extends Ingredientes implements Serializable  {
+public class Sanduches implements Serializable  {
 
     private String nombre;
     private int precio;
-    private List<HashMap<String, Object>> ingrediente;
-    //private List<Ingredientes>
+    private List<String> id_ingredientes;
     //private String ingrediente;
     private String imagen;
     private String categoria;
@@ -21,10 +20,18 @@ public class Sanduches extends Ingredientes implements Serializable  {
     }
 
 
-    public Sanduches(String nombre, int precio, List<HashMap<String, Object>> ingrediente, String imagen, String categoria) {
+    /*public Sanduches(String nombre, int precio, List<HashMap<String, Object>> ingrediente, String imagen, String categoria) {
         this.nombre = nombre;
         this.precio = precio;
         this.ingrediente = ingrediente;
+        this.imagen = imagen;
+        this.categoria = categoria;
+    }*/
+
+    public Sanduches(String nombre, int precio, List<String> id_ingredientes, String imagen, String categoria) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.id_ingredientes = id_ingredientes;
         this.imagen = imagen;
         this.categoria = categoria;
     }
@@ -53,12 +60,12 @@ public class Sanduches extends Ingredientes implements Serializable  {
         this.precio = precio;
     }
 
-    public List<HashMap<String, Object>> getIngrediente() {
-        return ingrediente;
+    public List<String> getId_ingredientes() {
+        return id_ingredientes;
     }
 
-    public void setIngrediente(List<HashMap<String, Object>> ingrediente) {
-        this.ingrediente = ingrediente;
+    public void setId_ingredientes(List<String> id_ingredientes) {
+        this.id_ingredientes = id_ingredientes;
     }
 
     /*public String getIngrediente() {

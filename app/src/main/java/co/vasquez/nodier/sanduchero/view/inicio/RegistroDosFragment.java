@@ -14,11 +14,6 @@ import android.widget.Button;
 
 import co.vasquez.nodier.sanduchero.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RegistroDosFragment#newInstance} factory method to
- * img_create an instance of this fragment.
- */
 public class RegistroDosFragment extends Fragment {
     private Button btnCrearReg;
 
@@ -37,13 +32,13 @@ public class RegistroDosFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        btnCrearReg = view.findViewById(R.id.btn_crear_reg);
+        /*btnCrearReg = view.findViewById(R.id.btn_crear_reg);
         btnCrearReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(v).navigate(R.id.loginFragment);
             }
-        });
+        });*/
 
     }
 }

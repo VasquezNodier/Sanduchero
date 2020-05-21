@@ -3,7 +3,9 @@
     package="co.vasquez.nodier.sanduchero">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:icon="@mipmap/ic_launcher"
@@ -12,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.fragmentCli.HostClienteActivity"></activity>
+        <activity android:name=".view.fragmentCli.HostClienteActivity" />
         <activity android:name=".view.inicio.HostInicioActivity" />
         <activity android:name=".view.inicio.SplashActivity">
             <intent-filter>
@@ -22,6 +24,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="co.vasquez.nodier.sanduchero.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/directorio_imagenes"/>
+        </provider>
+
     </application>
 
 </manifest>

@@ -39,7 +39,7 @@ public class SanducheRepo {
 
     public void obtenerNuestrosSanduches(final CallBackFirestore<List<Sanduches>> callBackFirestore) {
         //bdFirestore.collection("sanduches").get().addOnCompleteListener(
-        bdFirestore.collection("sanduches").whereEqualTo("categoria","nuestros").get().addOnCompleteListener(
+        bdFirestore.collection("sanduches").whereEqualTo("categoria", "nuestros").get().addOnCompleteListener(
                 new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -63,8 +63,9 @@ public class SanducheRepo {
     }
 
     public void obtenerSanduchesCreados(final CallBackFirestore<List<Sanduches>> callBackFirestore) {
-        //bdFirestore.collection("sanduches").get().addOnCompleteListener(
-        bdFirestore.collection("sanduches").whereEqualTo("categoria","creados").get().addOnCompleteListener(
+        //Para obtener el Array que está dentro del documento
+        //bdFirestore.collection("sanducheprueba").get().addOnCompleteListener(
+        bdFirestore.collection("sanduches").whereEqualTo("categoria", "creados").get().addOnCompleteListener(
                 new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {

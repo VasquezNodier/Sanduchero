@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,14 +24,14 @@ public class IngredienteAdapter extends RecyclerView.Adapter {
 
     List<Ingredientes> ingredientes;
     NombreDeInterface miEscuchador;
-    int precio=0;
-    boolean chk;
 
 
-
-    public IngredienteAdapter(List<Ingredientes> ingredientes, NombreDeInterface miEscuchador) {
-        this.ingredientes = ingredientes;
+    public void setMiEscuchador(NombreDeInterface miEscuchador) {
         this.miEscuchador = miEscuchador;
+    }
+
+    public IngredienteAdapter(List<Ingredientes> ingredientes) {
+        this.ingredientes = ingredientes;
     }
 
     public void setIngredientes(List<Ingredientes> ingredientes) {
@@ -74,13 +75,25 @@ public class IngredienteAdapter extends RecyclerView.Adapter {
         miHolder.txNombreIng.setText(miIngrediente.getNombre());
         miHolder.txPrecioIng.setText("$ "+miIngrediente.getPrecio());
 
-        miHolder.itemView.setOnClickListener(new View.OnClickListener() {
+        miHolder.chkSeleccionIng.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(miEscuchador!=null){
+                    miEscuchador.metodoOnClick(miIngrediente,position,isChecked);
+                }
+
+            }
+        });
+
+        /*miHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                miEscuchador.metodoOnClick(miIngrediente,position,chk);
-                Log.d("Prueba-Click","Hice click Adaptador en: "+miIngrediente.getNombre());
-                /*if (miHolder.chkSeleccionIng.isChecked()) {
+                if (miEscuchador != null) {
+
+                    miEscuchador.metodoOnClick(miIngrediente,position,chk);
+                    Log.d("Prueba-Click","Hice click Adaptador en: "+miIngrediente.getNombre());
+                *//*if (miHolder.chkSeleccionIng.isChecked()) {
                     miHolder.chkSeleccionIng.setChecked(false);
                     //Toast.makeText(v.getContext(), "Retiraste: "+miIngrediente.getNombre() , Toast.LENGTH_LONG).show();
                     precio -= miIngrediente.getPrecio();
@@ -90,9 +103,13 @@ public class IngredienteAdapter extends RecyclerView.Adapter {
                     //Toast.makeText(v.getContext(), "Seleccionaste: "+miIngrediente.getNombre()+ " Precio: " + miIngrediente.getPrecio(), Toast.LENGTH_LONG).show();
                     precio += miIngrediente.getPrecio();
                     Toast.makeText(v.getContext(), "precio "+precio, Toast.LENGTH_SHORT).show();
-                }*/
+                }*//*
+
+                }
+
+
             }
-        });
+        });*/
 
 
     }
