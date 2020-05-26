@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +34,7 @@ public class MenuInicioFragment extends Fragment {
     private SanduNuestrosAdapter sanducheAdapter;
     private SanducheRepo sanducheRepo;
     private List<Sanduches> sanduches;
+    private FirebaseAuth mAuth;
 
     public MenuInicioFragment() {
         // Required empty public constructor
@@ -42,7 +45,7 @@ public class MenuInicioFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_menu_inicio, container, false);
-
+        asociarElementos(view);
         return view;
     }
 
@@ -51,7 +54,7 @@ public class MenuInicioFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        asociarElementos(view);
+        mAuth = FirebaseAuth.getInstance();
         mostrarDatos();
         obtenerNuestrosSanduches();
     }

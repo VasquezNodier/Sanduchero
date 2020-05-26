@@ -1,49 +1,34 @@
 package co.vasquez.nodier.sanduchero.view.fragmentCli;
 
-import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Environment;
-import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.IOException;
@@ -52,6 +37,7 @@ import java.util.List;
 
 import co.vasquez.nodier.sanduchero.R;
 import co.vasquez.nodier.sanduchero.model.CallBackFirestore;
+import co.vasquez.nodier.sanduchero.model.entity.ProductoPedir;
 import co.vasquez.nodier.sanduchero.model.entity.Ingredientes;
 import co.vasquez.nodier.sanduchero.model.entity.Sanduches;
 import co.vasquez.nodier.sanduchero.model.repository.IngredienteRepo;
@@ -72,10 +58,9 @@ public class CrearSanducheFragment extends Fragment {
     private IngredienteRepo ingredienteRepo;
     private SanducheRepo sanducheRepo;
     private Button btnCrearAgregar;
-    private ImageButton ibFoto,ibGaleria;
+    private ImageButton ibFoto, ibGaleria;
     private EditText edtNombreSanduche;
     private TextView txPrecioCreado;
-
     private int precio;
     private ArrayList<String> ingrediente_sanduche;
     //STORAGE
@@ -134,22 +119,20 @@ public class CrearSanducheFragment extends Fragment {
     public void mostrarDatos(final View view) {
         ingredienteRepo = new IngredienteRepo(getContext());
         ingredientes = new ArrayList<>();
-        //ingrediente_sanduche = new ArrayList<>();
         ingredienteAdapter = new IngredienteAdapter(ingredientes);
-        final Sanduches nuevoSanduche = new Sanduches();
 
         ingredienteAdapter.setMiEscuchador(new IngredienteAdapter.NombreDeInterface() {
             @Override
             public void metodoOnClick(final Ingredientes ingrediente, int posicion, boolean chk) {
                 //Toast.makeText(getContext(), "Seleccioné desde CLASE: " + ingrediente.getNombre(), Toast.LENGTH_LONG).show();
-
                 //SELECCION DE CHECKBOX PARA SUMAR Y RESTAR EL PRECIO DEL SANDUCHE
                 if (chk) {
                     Log.d("Prueba-Click", "Selección: " + ingrediente.getNombre());
                     precio += ingrediente.getPrecio();
                     ingrediente_sanduche.add(ingrediente.getNombre());
                     txPrecioCreado.setText("$ " + precio);
-                } else {
+                }
+                else {
                     Log.d("Prueba-Click", "Retiraste: " + ingrediente.getNombre());
                     precio -= ingrediente.getPrecio();
                     txPrecioCreado.setText("$ " + precio);
@@ -168,7 +151,6 @@ public class CrearSanducheFragment extends Fragment {
                         System.out.println("Ingrediente " + (i + 1) + ": " + ingrediente_sanduche.get(i));
 
                     }
-                    //nuevoSanduche.setId_ingredientes(ingrediente_sanduche);
                 }
             }
         });
@@ -198,9 +180,11 @@ public class CrearSanducheFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                //ingrediente_sanduche = new ArrayList<>();
+                final ProductoPedir agregarProductoPedir = new ProductoPedir();
                 final Sanduches nuevoSanduche = new Sanduches();
-                final String nombre = edtNombreSanduche.getText().toString();
+                String nombre = edtNombreSanduche.getText().toString();
+                String categoria = "creados";
+                int cantidad = 1;
                 if (nombre.isEmpty()) {
                     Toast.makeText(getContext(), "Falta el nombre", Toast.LENGTH_SHORT).show();
                 } else if (precio < 0) {
@@ -211,13 +195,14 @@ public class CrearSanducheFragment extends Fragment {
                     Toast.makeText(getContext(), "Debes tomar una foto", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    nuevoSanduche.setNombre(nombre);
-                    nuevoSanduche.setPrecio(precio);
-                    nuevoSanduche.setCategoria("creados");
-                    nuevoSanduche.setId_ingredientes(ingrediente_sanduche);
-
                     //AGREGAR LA FOTO A STORAGE Y DESCARGAR LA URL PARA ASIGNARLA A PRODUCTO PARA LA BD
                     String nomfoto = fotoUri.getPath().substring(fotoUri.getPath().lastIndexOf("/"));
+
+                    nuevoSanduche.setNombre(nombre);
+                    nuevoSanduche.setPrecio(precio);
+                    nuevoSanduche.setCategoria(categoria);
+                    nuevoSanduche.setId_ingredientes(ingrediente_sanduche);
+
                     StorageReference misFotos = storageRef.child("sanduches/" + nomfoto);
 
                     misFotos.putFile(fotoUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
@@ -231,10 +216,11 @@ public class CrearSanducheFragment extends Fragment {
                                             String urlFoto = task.getResult().toString();
                                             nuevoSanduche.setImagen(urlFoto);
                                             sanducheRepo = new SanducheRepo(getContext());
-                                            sanducheRepo.agregarSanducheR(nuevoSanduche, new CallBackFirestore<Sanduches>() {
+                                            sanducheRepo.agregarSanduche(nuevoSanduche, new CallBackFirestore<Sanduches>() {
                                                 @Override
                                                 public void correcto(Sanduches respuesta) {
-
+                                                    Navigation.findNavController(getView()).navigate(R.id.menuCliFragment);
+                                                    Toast.makeText(getContext(), "Se creó y agregó al carrito", Toast.LENGTH_SHORT).show();
                                                 }
                                             }, edtNombreSanduche.getText().toString());
                                         }
@@ -243,6 +229,14 @@ public class CrearSanducheFragment extends Fragment {
                             }
                         }
                     });
+
+                    agregarProductoPedir.setNombre(nombre);
+                    agregarProductoPedir.setCategoria(categoria);
+                    agregarProductoPedir.setPrecio(precio);
+                    agregarProductoPedir.setCantidad(cantidad);
+
+                    DetalleSanducheFragment.lista_producto_sanduche.add(agregarProductoPedir);
+
                 }
             }
         });
@@ -277,9 +271,9 @@ public class CrearSanducheFragment extends Fragment {
         ibGaleria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                if (intent.resolveActivity(getActivity().getPackageManager())!=null){
-                    startActivityForResult(intent,CODIGO_FOTO_GALERIA);
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
+                    startActivityForResult(intent, CODIGO_FOTO_GALERIA);
                 }
             }
         });

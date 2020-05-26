@@ -3,46 +3,59 @@ package co.vasquez.nodier.sanduchero.model.entity;
 import java.io.Serializable;
 
 public class Usuarios implements Serializable {
-    private String nombreUsu;
-    private String correoUsu;
-    private String contraUsu;
+    private String nombre;
+    private String correo;
+    private String contra;
+    private String tipo;
 
-    public Usuarios(String nombreUsu, String correoUsu, String contraUsu) {
-        this.nombreUsu = nombreUsu;
-        this.correoUsu = correoUsu;
-        this.contraUsu = contraUsu;
+    public Usuarios() {
     }
 
-    public String getNombreUsu() {
-        return nombreUsu;
+    public Usuarios(String nombre, String correo, String contra, String tipo) {
+        this.nombre = nombre;
+        this.correo = correo;
+        this.contra = contra;
+        this.tipo = tipo;
     }
 
-    public void setNombreUsu(String nombreUsu) {
-        this.nombreUsu = nombreUsu;
+    public String getNombre() {
+        return nombre;
     }
 
-    public String getCorreoUsu() {
-        return correoUsu;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setCorreoUsu(String correoUsu) {
-        this.correoUsu = correoUsu;
+    public String getCorreo() {
+        return correo;
     }
 
-    public String getContraUsu() {
-        return contraUsu;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
-    public void setContraUsu(String contraUsu) {
-        this.contraUsu = contraUsu;
+    public String getContra() {
+        return contra;
+    }
+
+    public void setContra(String contra) {
+        this.contra = contra;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     @Override
     public String toString() {
         return "Usuarios{" +
-                ", nombreUsu='" + nombreUsu + '\'' +
-                ", correoUsu='" + correoUsu + '\'' +
-                ", contraUsu='" + contraUsu + '\'' +
+                ", nombreUsu='" + nombre + '\'' +
+                ", correoUsu='" + correo + '\'' +
+                ", contraUsu='" + contra + '\'' +
                 '}';
     }
 

@@ -1,34 +1,18 @@
 package co.vasquez.nodier.sanduchero.model.entity;
 
+import java.io.Serializable;
 
-
-public class Direcciones {
-    private int idDir;
-    private int idUsuDir;
+public class Direcciones implements Serializable {
     private String direccion;
-    private String localizacion;
+    private String ciudad;
+    private String pais;
+    private String postal;
 
-    public Direcciones(String direccion, String localizacion) {
-
-        //this.idUsuDir = 0;
+    public Direcciones(String direccion, String ciudad, String pais, String postal) {
         this.direccion = direccion;
-        this.localizacion = localizacion;
-    }
-
-    public int getIdDir() {
-        return idDir;
-    }
-
-    public void setIdDir(int idDir) {
-        this.idDir = idDir;
-    }
-
-    public int getIdUsuDir() {
-        return idUsuDir;
-    }
-
-    public void setIdUsuDir(int idUsuDir) {
-        this.idUsuDir = idUsuDir;
+        this.ciudad = ciudad;
+        this.pais = pais;
+        this.postal = postal;
     }
 
     public String getDireccion() {
@@ -39,11 +23,32 @@ public class Direcciones {
         this.direccion = direccion;
     }
 
-    public String getLocalizacion() {
-        return localizacion;
+    public String getCiudad() {
+        return ciudad;
     }
 
-    public void setLocalizacion(String localizacion) {
-        this.localizacion = localizacion;
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public String getPostal() {
+        return postal;
+    }
+
+    public void setPostal(String postal) {
+        this.postal = postal;
+    }
+
+    @Override
+    public String toString() {
+        return direccion + ", " + ciudad + ", " + pais;
     }
 }

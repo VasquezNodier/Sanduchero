@@ -25,17 +25,16 @@ public class IngredienteAdapter extends RecyclerView.Adapter {
     List<Ingredientes> ingredientes;
     NombreDeInterface miEscuchador;
 
-
-    public void setMiEscuchador(NombreDeInterface miEscuchador) {
-        this.miEscuchador = miEscuchador;
-    }
-
     public IngredienteAdapter(List<Ingredientes> ingredientes) {
         this.ingredientes = ingredientes;
     }
 
     public void setIngredientes(List<Ingredientes> ingredientes) {
         this.ingredientes = ingredientes;
+    }
+
+    public void setMiEscuchador(NombreDeInterface miEscuchador) {
+        this.miEscuchador = miEscuchador;
     }
 
     class IngredienteViewHolder extends RecyclerView.ViewHolder{
@@ -84,34 +83,6 @@ public class IngredienteAdapter extends RecyclerView.Adapter {
 
             }
         });
-
-        /*miHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (miEscuchador != null) {
-
-                    miEscuchador.metodoOnClick(miIngrediente,position,chk);
-                    Log.d("Prueba-Click","Hice click Adaptador en: "+miIngrediente.getNombre());
-                *//*if (miHolder.chkSeleccionIng.isChecked()) {
-                    miHolder.chkSeleccionIng.setChecked(false);
-                    //Toast.makeText(v.getContext(), "Retiraste: "+miIngrediente.getNombre() , Toast.LENGTH_LONG).show();
-                    precio -= miIngrediente.getPrecio();
-                    Toast.makeText(v.getContext(), "precio "+precio, Toast.LENGTH_SHORT).show();
-                }else{
-                    miHolder.chkSeleccionIng.setChecked(true);
-                    //Toast.makeText(v.getContext(), "Seleccionaste: "+miIngrediente.getNombre()+ " Precio: " + miIngrediente.getPrecio(), Toast.LENGTH_LONG).show();
-                    precio += miIngrediente.getPrecio();
-                    Toast.makeText(v.getContext(), "precio "+precio, Toast.LENGTH_SHORT).show();
-                }*//*
-
-                }
-
-
-            }
-        });*/
-
-
     }
 
 

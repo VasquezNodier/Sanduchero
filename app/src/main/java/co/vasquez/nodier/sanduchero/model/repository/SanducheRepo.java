@@ -88,19 +88,7 @@ public class SanducheRepo {
                 });
     }
 
-    public void agregarSanduche(final Sanduches miSanduche, final CallBackFirestore<Sanduches> callBackFirestore) {
-        bdFirestore.collection("sanduches").add(miSanduche).addOnCompleteListener(
-                new OnCompleteListener<DocumentReference>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentReference> task) {
-                        if (task.isSuccessful()) {
-                            callBackFirestore.correcto(miSanduche);
-                        }
-                    }
-                });
-    }
-
-    public void agregarSanducheR(final Sanduches miSanduche, final CallBackFirestore<Sanduches> callBackFirestore, String id) {
+    public void agregarSanduche(final Sanduches miSanduche, final CallBackFirestore<Sanduches> callBackFirestore, String id) {
         bdFirestore.collection("sanduches").document(id).set(miSanduche).addOnCompleteListener(
                 new OnCompleteListener<Void>() {
                     @Override

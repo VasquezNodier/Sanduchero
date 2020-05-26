@@ -32,7 +32,7 @@
         app:srcCompat="@drawable/img_iconoapp" />
 
     <EditText
-        android:id="@+id/et_Usuario"
+        android:id="@+id/et_Correo"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -41,6 +41,7 @@
         android:drawablePadding="16dp"
         android:ems="10"
         android:hint="@string/correo"
+        android:text="avtestnp@gmail.com"
         android:inputType="textEmailAddress"
         android:padding="14dp"
         android:textColor="@color/colorWhite"
@@ -59,13 +60,14 @@
         android:drawablePadding="16dp"
         android:ems="10"
         android:hint="@string/password"
+        android:text="1234567890"
         android:inputType="textPassword"
         android:padding="14dp"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Usuario" />
+        app:layout_constraintTop_toBottomOf="@+id/et_Correo" />
 
 
     <Button

@@ -28,7 +28,14 @@
         android:id="@+id/cartCliFragment"
         android:name="co.vasquez.nodier.sanduchero.view.fragmentCli.CartCliFragment"
         android:label="fragment_cart_cli"
-        tools:layout="@layout/fragment_cart_cli" />
+        tools:layout="@layout/fragment_cart_cli" >
+        <action
+            android:id="@+id/action_cartCliFragment_to_mapaFragment"
+            app:destination="@id/mapaFragment" />
+        <argument
+            android:name="miDireccion"
+            app:argType="co.vasquez.nodier.sanduchero.model.entity.Direcciones" />
+    </fragment>
     <fragment
         android:id="@+id/profileCliFragment"
         android:name="co.vasquez.nodier.sanduchero.view.fragmentCli.ProfileCliFragment"
@@ -42,6 +49,11 @@
         <argument
             android:name="miSanduche"
             app:argType="co.vasquez.nodier.sanduchero.model.entity.Sanduches" />
+        <action
+            android:id="@+id/action_detalleSanducheFragment_to_menuCliFragment"
+            app:destination="@id/menuCliFragment"
+            app:popUpTo="@id/menuCliFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/crearSanducheFragment"
@@ -51,5 +63,19 @@
         <argument
             android:name="miUsuario"
             app:argType="co.vasquez.nodier.sanduchero.model.entity.Usuarios" />
+        <action
+            android:id="@+id/action_crearSanducheFragment_to_menuCliFragment"
+            app:destination="@id/menuCliFragment"
+            app:popUpTo="@id/menuCliFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapaFragment"
+        android:name="co.vasquez.nodier.sanduchero.view.fragmentCli.MapaFragment"
+        android:label="fragment_mapa"
+        tools:layout="@layout/fragment_mapa" >
+        <action
+            android:id="@+id/action_mapaFragment_to_cartCliFragment"
+            app:destination="@id/cartCliFragment" />
     </fragment>
 </navigation>

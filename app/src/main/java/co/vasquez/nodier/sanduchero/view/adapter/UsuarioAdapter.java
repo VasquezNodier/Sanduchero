@@ -51,9 +51,9 @@ public class UsuarioAdapter extends RecyclerView.Adapter {
         final UsuarioViewHolder miHolder = (UsuarioViewHolder) holder;
         final Usuarios miUsuario =usuarios.get(position);
 
-        miHolder.nombreUser.setText(miUsuario.getNombreUsu());
-        miHolder.correoUser.setText(miUsuario.getCorreoUsu());
-        miHolder.contraUser.setText(miUsuario.getContraUsu());
+        miHolder.nombreUser.setText(miUsuario.getNombre());
+        miHolder.correoUser.setText(miUsuario.getCorreo());
+        miHolder.contraUser.setText(miUsuario.getContra());
 
         miHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

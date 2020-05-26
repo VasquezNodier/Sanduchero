@@ -18,7 +18,9 @@
             app:destination="@id/olvideFragment" />
         <action
             android:id="@+id/xml"
-            app:destination="@id/cli_navigation.xml" />
+            app:destination="@id/cli_navigation.xml"
+            app:popUpTo="@id/cli_navigation.xml"
+            app:popUpToInclusive="true" />
 
     </fragment>
     <fragment
@@ -28,7 +30,9 @@
         tools:layout="@layout/fragment_registro_uno" >
         <action
             android:id="@+id/action_registroUnoFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/registroDosFragment"
@@ -46,7 +50,9 @@
         tools:layout="@layout/fragment_olvide" >
         <action
             android:id="@+id/action_olvideFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <include app:graph="@navigation/cli_navigation" />
 

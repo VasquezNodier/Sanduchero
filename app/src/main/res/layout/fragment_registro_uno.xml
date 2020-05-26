@@ -123,7 +123,7 @@
 
 
     <Button
-        android:id="@+id/btn_CrearUsuario"
+        android:id="@+id/btn_CrearCliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
